@@ -1,0 +1,56 @@
+﻿@page
+@using Microsoft.AspNetCore.Http
+@{
+    Menus = GetMenu();
+    await Response.WriteAsJsonAsync(Menus);
+}
+
+@functions {
+    List<Model1> Menus;
+
+    List<Model1> GetMenu() {
+        var tMenu = new List<Model1>();
+        tMenu.Add(new Model1("首页", "HWeb.view.home.Main", "x-fa fa-h-square"));
+        tMenu.Add(new Model1("企业公文", "HWeb.view.article.Main"));
+        tMenu.Add(new Model1("内部邮件", "HWeb.view.mail.Main"));
+        tMenu.Add(new Model1("人事管理", "", "") {
+                menu = new Model2 {
+                    items = new List<Model1>() {
+          new Model1("职员管理", "HWeb.view.employee.Main"),
+          new Model1("薪资管理", "HWeb.view.salary.Main"),
+          new Model1("考勤管理", "HWeb.view.attendance.Main")
+        }
+                }
+            });
+        tMenu.Add(new Model1("其它业务", "", "") {
+                menu = new Model2 {
+                    items = new List<Model1>() {
+          new Model1("故障报修", "HWeb.view.employee.Main"),
+        }
+                }
+            });
+        tMenu.Add(new Model1("文件下载", "HWeb.view.files.Main"));
+        tMenu.Add(new Model1("系统管理", "HWeb.view.system.Main"));
+        return tMenu;
+    }
+
+    class Model1 {
+        public string? name { get; set; }
+        public string? text { get; set; }
+        public string? iconCls { get; set; }
+        public Model2? menu { get; set; }
+
+        public Model1() { }
+        public Model1(string atext, string aname, string aiconcls = "", Model2 amenu = null) {
+            this.name = aname;
+            this.text = atext;
+            this.iconCls = aiconcls;
+            this.menu = amenu;
+        }
+    }
+
+    class Model2 {
+        public string layout { get; set; } = "vbox";
+        public List<Model1?> items { get; set; }
+    }
+}

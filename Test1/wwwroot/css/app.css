@@ -1,0 +1,18 @@
+﻿.x-segmented-button-item * {
+    outline: none !important;
+}
+/* 自定 */
+.main-north {
+    background: #fff url(../img/timg.jpg) no-repeat scroll 0 0/100% 200%;
+}
+
+.main-north-1 {
+    padding: 20px 0 0 20px;
+    color: #000;
+    font-size: 24px;
+    font-family: 幼圆;
+}
+
+.main-center {
+    background-color: #fff;
+}

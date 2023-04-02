@@ -1,6 +1,7 @@
 ﻿@page
 @{
-    ViewData["Title"] = "asdf";
+    Layout = null;
+    ViewData["Title"] = "测试";
 }
 
 <!DOCTYPE html>
@@ -9,8 +10,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - HWeb</title>
+    <link href="~/lib/extjs620/theme/theme-classic-all.css" rel="stylesheet" />
+    <link href="~/css/app.css" rel="stylesheet" />
+    <script>
+        UserId="123";
+    </script>
 </head>
 <body>
-    测试
+    <script src="~/lib/extjs620/ext-all.js"></script>
+    <script src="~/lib/extjs620/locale-zh_cn.js"></script>
+    <script src="~/lib/extjs620/theme/theme-classic.js"></script>
+    <script src="~/js/app.js" asp-append-version="true"></script>
+
 </body>
 </html>

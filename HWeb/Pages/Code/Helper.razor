@@ -1,0 +1,12 @@
+﻿@using Newtonsoft.Json
+@using WebMatrix.Data
+
+@code {
+    public static string Write(object value) {
+        return JsonConvert.SerializeObject(value);
+    }
+
+    public static Database Open(string name) {
+        return Database.Open(name);
+    }
+}
